@@ -5,7 +5,81 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+window.onload = () => {
+  document.querySelector("#buttonExcuse").addEventListener("click", () => {
+    document.querySelector("#excuse").innerHTML = generateExcuse();
+    document.getElementById("ia").src = cambia_imagen[rand(10) - 1];
+  });
 };
+
+let generateExcuse = () => {
+  let who = [
+    "Mi hamster",
+    "Mi tía Luisa",
+    "El pájaro del vecino",
+    "Mi jefe",
+    "Mi hermano",
+    "Mi vecina",
+    "Mi cuñado",
+    "Mi abuelo"
+  ];
+  let action = [
+    "ha perdido",
+    "ha robado",
+    "ha roto",
+    "ha quemado",
+    "ha escondido",
+    "ha tirado",
+    "ha borrado"
+  ];
+  let what = [
+    "mi proyecto",
+    "mi ordenador",
+    "mi móvil",
+    "mis llaves",
+    "mi cartera",
+    "mi dinero",
+    "mis ahorros",
+    "mi teléfono",
+    "mis auriculares"
+  ];
+  let when = [
+    "justo ahora",
+    "ahora mismo",
+    "en este momento",
+    "cuando estaba de camino",
+    "antes de salir"
+  ];
+
+  let whoIndex = Math.floor(Math.random() * who.length);
+  let actionIndex = Math.floor(Math.random() * action.length);
+  let whatIndex = Math.floor(Math.random() * what.length);
+  let whenIndex = Math.floor(Math.random() * when.length);
+
+  return (
+    who[whoIndex] +
+    " " +
+    action[actionIndex] +
+    " " +
+    what[whatIndex] +
+    " " +
+    when[whenIndex]
+  );
+};
+
+let cambia_imagen = new Array();
+cambia_imagen[0] = "src/assets/img/0.jpg";
+cambia_imagen[1] = "src/assets/img/1.jpg";
+cambia_imagen[2] = "src/assets/img/2.jpg";
+cambia_imagen[3] = "src/assets/img/3.jpg";
+cambia_imagen[4] = "src/assets/img/4.jpg";
+cambia_imagen[5] = "src/assets/img/5.jpg";
+cambia_imagen[6] = "src/assets/img/6.jpg";
+cambia_imagen[7] = "src/assets/img/7.jpg";
+cambia_imagen[8] = "src/assets/img/8.jpg";
+cambia_imagen[9] = "src/assets/img/9.jpg";
+
+function rand(n) {
+  // creamos un numero al azar entre 1 y 10 (o cual sea la cantidad de imágenes)
+  return Math.floor(Math.random() * cambia_imagen.length - 1);
+}
