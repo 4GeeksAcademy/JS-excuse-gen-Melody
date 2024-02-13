@@ -80,6 +80,5 @@ cambia_imagen[8] = "src/assets/img/8.jpg";
 cambia_imagen[9] = "src/assets/img/9.jpg";
 
 function rand(n) {
-  // creamos un numero al azar entre 1 y 10 (o cual sea la cantidad de imágenes)
-  return Math.floor(Math.random() * cambia_imagen.length);
+  return Math.floor(Math.random() * n + 1);
 }
