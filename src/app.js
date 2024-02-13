@@ -8,7 +8,7 @@ import "./assets/img/4geeks.ico";
 window.onload = () => {
   document.querySelector("#buttonExcuse").addEventListener("click", () => {
     document.querySelector("#excuse").innerHTML = generateExcuse();
-    document.getElementById("ia").src = cambia_imagen[rand(10) - 1];
+    document.getElementById("ia").src = cambia_imagen[rand(9) - 1];
   });
 };
 
@@ -81,5 +81,5 @@ cambia_imagen[9] = "src/assets/img/9.jpg";
 
 function rand(n) {
   // creamos un numero al azar entre 1 y 10 (o cual sea la cantidad de imágenes)
-  return Math.floor(Math.random() * cambia_imagen.length - 1);
+  return Math.floor(Math.random() * cambia_imagen.length);
 }
