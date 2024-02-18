@@ -5,13 +5,6 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = () => {
-  document.querySelector("#buttonExcuse").addEventListener("click", () => {
-    document.querySelector("#excuse").innerHTML = generateExcuse();
-    document.getElementById("ia").src = cambia_imagen[rand(9) - 1];
-  });
-};
-
 let generateExcuse = () => {
   let who = [
     "Mi hamster",
@@ -52,8 +45,11 @@ let generateExcuse = () => {
   ];
 
   let whoIndex = Math.floor(Math.random() * who.length);
+
   let actionIndex = Math.floor(Math.random() * action.length);
+
   let whatIndex = Math.floor(Math.random() * what.length);
+
   let whenIndex = Math.floor(Math.random() * when.length);
 
   return (
@@ -79,6 +75,14 @@ cambia_imagen[7] = "src/assets/img/7.jpg";
 cambia_imagen[8] = "src/assets/img/8.jpg";
 cambia_imagen[9] = "src/assets/img/9.jpg";
 
-function rand(n) {
+function randomImageGenerator(n) {
   return Math.floor(Math.random() * n + 1);
 }
+
+window.onload = () => {
+  document.querySelector("#buttonExcuse").addEventListener("click", () => {
+    document.querySelector("#excuse").innerHTML = generateExcuse();
+    document.getElementById("randomImage").src =
+      cambia_imagen[randomImageGenerator(9) - 1];
+  });
+};
